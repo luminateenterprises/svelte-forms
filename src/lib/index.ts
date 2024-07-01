@@ -3,4 +3,4 @@ export { form } from './form.js';
 export { field } from './field.js';
 export { style } from './use.style.js';
 export { combined } from './combined.js';
-export { defaultFieldOptions as defaultFieldOptions } from './types.js';
+export { defaultFieldOptions as defaultFieldOptions, type FieldOptions } from './types.js';

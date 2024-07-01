@@ -1,5 +1,11 @@
 # svelte-forms
 
+## 3.0.0
+
+### Breaking Changes
+
+- Migrate package to use `svelte-package`
+
 ## 2.3.1
 
 ### Patch Changes

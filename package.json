@@ -6,11 +6,11 @@
 		"validations",
 		"svelte-forms"
 	],
-	"version": "2.3.1",
+  "version": "3.0.0",
 	"scripts": {
 		"dev": "svelte-kit dev",
 		"build": "svelte-kit build && touch build/.nojekyll",
-		"package": "pnpm run test && svelte-kit package && node clean-package.js",
+    "package": "svelte-package",
 		"preview": "svelte-kit preview",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
@@ -24,44 +24,45 @@
 		"deploy": "pnpm run deploy:docs && pnpm run deploy:package"
 	},
 	"devDependencies": {
-		"@babel/preset-env": "^7.16.7",
-		"@changesets/cli": "^2.20.0",
-		"@sveltejs/adapter-auto": "next",
-		"@sveltejs/adapter-static": "^1.0.0-next.24",
-		"@sveltejs/kit": "next",
-		"@testing-library/jest-dom": "^5.16.1",
-		"@testing-library/svelte": "^3.0.3",
-		"@types/jest": "^27.4.0",
-		"autoprefixer": "^10.4.2",
-		"cssnano": "^5.0.15",
-		"jest": "^27.4.7",
-		"jest-in-case": "^1.0.2",
-		"jest-mock-promise": "^1.1.12",
-		"markdown-it": "^12.3.1",
-		"markdown-it-anchor": "^8.4.1",
-		"node-sass": "^6.0.1",
-		"postcss": "^8.4.5",
-		"postcss-load-config": "^3.1.1",
-		"prettier": "^2.5.1",
-		"prettier-plugin-svelte": "^2.5.1",
-		"svelte": "^3.45.0",
-		"svelte-check": "^2.2.11",
-		"svelte-jester": "^2.1.5",
-		"svelte-preprocess": "^4.10.1",
-		"svelte2tsx": "^0.4.12",
-		"tailwindcss": "^2.2.19",
-		"ts-jest": "^27.1.2",
-		"tslib": "^2.3.1",
-		"typescript": "^4.5.4",
-		"vite-plugin-markdown": "^2.0.2"
-	},
+    "@babel/preset-env": "^7.16.7",
+    "@changesets/cli": "^2.20.0",
+    "@sveltejs/adapter-auto": "next",
+    "@sveltejs/adapter-static": "^1.0.0-next.24",
+    "@sveltejs/kit": "2.4.3",
+    "@sveltejs/package": "^2.3.2",
+    "@testing-library/jest-dom": "^5.16.1",
+    "@testing-library/svelte": "^3.0.3",
+    "@types/jest": "^27.4.0",
+    "autoprefixer": "^10.4.2",
+    "cssnano": "^5.0.15",
+    "jest": "^27.4.7",
+    "jest-in-case": "^1.0.2",
+    "jest-mock-promise": "^1.1.12",
+    "markdown-it": "^12.3.1",
+    "markdown-it-anchor": "^8.4.1",
+    "node-sass": "^9.0.0",
+    "postcss": "^8.4.5",
+    "postcss-load-config": "^3.1.1",
+    "prettier": "^2.5.1",
+    "prettier-plugin-svelte": "^2.5.1",
+    "svelte": "^3.45.0",
+    "svelte-awesome": "^3.3.1",
+    "svelte-check": "^2.2.11",
+    "svelte-jester": "^2.1.5",
+    "svelte-preprocess": "^4.10.1",
+    "svelte2tsx": "^0.4.12",
+    "tailwindcss": "^2.2.19",
+    "ts-jest": "^27.1.2",
+    "tslib": "^2.3.1",
+    "typescript": "^4.5.4",
+    "vite-plugin-markdown": "^2.0.2"
+  },
 	"type": "module",
 	"dependencies": {
 		"is-promise": "^4.0.0",
 		"lodash.kebabcase": "^4.1.1",
 		"prism-svelte": "^0.4.7",
 		"prismjs": "^1.26.0",
-		"svelte-awesome": "^2.4.2",
 		"ua-parser-js": "^1.0.2"
 	},
 	"homepage": "https://chainlist.github.io/svelte-forms/",
@@ -72,5 +73,18 @@
 	"author": {
 		"name": "Kevin Guillouard"
 	},
-	"license": "MIT"
+  "license": "MIT",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "svelte": "./dist/index.js"
+    },
+    "./validators": {
+      "types": "./dist/validators/index.d.ts",
+      "svelte": "./dist/validators/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ]
 }
